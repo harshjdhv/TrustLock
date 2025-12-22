@@ -27,6 +27,17 @@ out/
 build
 dist
 
+# Anchor/Solana specific
+# Anchor build artifacts
+target/
+.anchor/
+*.bin
+
+# Solana ledger and test files
+*.log
+test-ledger/
+shred-program/
+solana-program-tests/
 
 # Debug
 npm-debug.log*
@@ -34,3 +45,7 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
+
+# IDE
+.vscode/settings.json
+.idea/

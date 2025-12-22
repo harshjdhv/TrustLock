@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "types": ["node", "chai"],
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": ["tests/**/*.ts"],
+  "exclude": ["node_modules"]
+}
