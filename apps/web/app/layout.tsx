@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google"
+import "@solana/wallet-adapter-react-ui/styles.css"
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
+import { SolanaProvider } from "@/components/solana-provider"
+import { cn } from "@workspace/ui/lib/utils"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -26,7 +28,9 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", fontSans.variable)}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SolanaProvider>{children}</SolanaProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

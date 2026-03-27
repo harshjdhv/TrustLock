@@ -1,6 +1,7 @@
 import { Button } from "@workspace/ui/components/button"
-import { ArrowRight, Shield, Check, Lock, LayoutGrid, CircleDashed } from "lucide-react"
+import { Shield, Check, Lock, LayoutGrid, CircleDashed } from "lucide-react"
 import Link from "next/link"
+import { ConnectWalletCta } from "@/components/connect-wallet-cta"
 
 export default function Page() {
   return (
@@ -15,8 +16,11 @@ export default function Page() {
             <span className="text-[15px] font-semibold tracking-tight">TrustLock</span>
           </div>
           <div className="flex items-center gap-4">
-            <Button className="h-8 px-4 text-[13px] font-medium rounded-full bg-[#E3E3E3]/80 text-zinc-950 shadow-[0_2px_4px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(253,253,253,1)] hover:bg-[#E3E3E3] transition-all">
-              Launch App
+            <Button
+              asChild
+              className="h-8 px-4 text-[13px] font-medium rounded-full bg-[#E3E3E3]/80 text-zinc-950 shadow-[0_2px_4px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(253,253,253,1)] hover:bg-[#E3E3E3] transition-all"
+            >
+              <Link href="/dashboard">Launch App</Link>
             </Button>
           </div>
         </div>
@@ -50,11 +54,12 @@ export default function Page() {
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                <Button className="h-12 px-8 text-[15px] font-medium rounded-full bg-zinc-950 text-white shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:bg-zinc-800 hover:-translate-y-0.5 transition-all w-full sm:w-auto relative group">
-                  <span className="relative z-10 flex items-center gap-2">Connect Wallet <ArrowRight className="w-4 h-4" /></span>
-                </Button>
-                <Button className="h-12 px-8 text-[15px] font-medium rounded-full bg-[#E3E3E3]/80 text-zinc-950 shadow-[0_2px_4px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(253,253,253,1)] hover:bg-[#E3E3E3] hover:-translate-y-0.5 transition-all w-full sm:w-auto">
-                  How It Works
+                <ConnectWalletCta className="h-12 px-8 text-[15px] font-medium rounded-full bg-zinc-950 text-white shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:bg-zinc-800 hover:-translate-y-0.5 transition-all w-full sm:w-auto relative group" />
+                <Button
+                  asChild
+                  className="h-12 px-8 text-[15px] font-medium rounded-full bg-[#E3E3E3]/80 text-zinc-950 shadow-[0_2px_4px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(253,253,253,1)] hover:bg-[#E3E3E3] hover:-translate-y-0.5 transition-all w-full sm:w-auto"
+                >
+                  <Link href="#how-it-works">How It Works</Link>
                 </Button>
               </div>
             </div>
@@ -62,7 +67,7 @@ export default function Page() {
         </section>
 
         {/* Abstract Component Preview / App UI */}
-        <section className="relative z-20 -mt-20">
+        <section id="how-it-works" className="relative z-20 -mt-20">
           <div className="max-w-[1000px] mx-auto px-6">
             <div className="bg-white rounded-[24px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-zinc-100 overflow-hidden backdrop-blur-3xl transform hover:-translate-y-1 transition-transform duration-500">
               <div className="h-12 border-b border-zinc-100 flex items-center px-6 gap-2 bg-zinc-50/50">
