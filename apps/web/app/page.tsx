@@ -3,7 +3,14 @@ import { Shield, Check, Lock, LayoutGrid, CircleDashed } from "lucide-react"
 import Link from "next/link"
 import { ConnectWalletCta } from "@/components/connect-wallet-cta"
 
-export default function Page() {
+type LandingPageProps = {
+  searchParams: Promise<{ auth?: string }>
+}
+
+export default async function Page({ searchParams }: LandingPageProps) {
+  const params = await searchParams
+  const authRequired = params.auth === "required"
+
   return (
     <div className="flex min-h-screen flex-col bg-[#FAFAFA] text-zinc-950 font-sans selection:bg-zinc-900 selection:text-white">
       {/* Refined Navigation */}
@@ -52,6 +59,11 @@ export default function Page() {
               <p className="text-[17px] md:text-[19px] leading-relaxed text-zinc-500 max-w-[600px] font-light mb-12">
                 A decentralized sanctuary for freelancers and clients. Escrow your stablecoins directly on-chain, release them instantly upon delivery, and eliminate invoice anxiety entirely.
               </p>
+              {authRequired ? (
+                <p className="mb-6 rounded-full border border-amber-300 bg-amber-50 px-4 py-2 text-xs font-medium tracking-wide text-amber-700 uppercase">
+                  Sign in with your wallet to access dashboard
+                </p>
+              ) : null}
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
                 <ConnectWalletCta className="h-12 px-8 text-[15px] font-medium rounded-full bg-zinc-950 text-white shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:bg-zinc-800 hover:-translate-y-0.5 transition-all w-full sm:w-auto relative group" />
